@@ -44,19 +44,11 @@ export default class BodyCenter extends React.Component<IProps, IState> {
         // console.log('contactData',contactData.contactName);
         return (
             <>
-                <Container fluid className="stickyy">
+                <Container fluid className="sticky-menu">
                     <Row >
                         <Col sm="12" lg="12" md="12" style={{ padding: "0", }} >
-                            {/* <div id="menu">
-                                <ul>
-                                    <li><a href="#home">TỔNG QUAN</a></li>
-                                    <li><a href="#news">TIỆN ÍCH</a></li>
-                                    <li><a href="#contact">VỊ TRÍ</a></li>
-                                    <li><a href="#about">NHÀ ĐẤT LÂN CẬN</a></li>
-                                </ul>
-                            </div> */}
                             <Nav className="ml-auto navbar-light bg-light" id="myHeader" >
-                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tongquan">TỔNG QUAN</Nav.Link>
+                                <Nav.Link style={{ color: "black", fontWeight: "bold",marginLeft:"100px" }} href="#tongquan">TỔNG QUAN</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tienich">TIỆN ÍCH</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#vitri">VỊ TRÍ</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
@@ -65,7 +57,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                     </Row>
                 </Container>
-                <hr />
+                <hr style={{marginTop:"0"}}/>
 
                 <Container>
                     <Row>
@@ -101,23 +93,6 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <p className="titlee">Loại hình <span className="textt">{data.propertyName}</span></p>
 
                                 <Row style={{ fontSize: "14px" }}>
-                                    {/* <Col lg="4">
-                                        <p>Căn hộ</p>
-                                        <p>Văn phòng</p>
-                                        <p>Đất nền</p>
-                                        <p>Khác</p>
-                                    </Col>
-                                    <Col lg="4">
-                                        <p>Officetel</p>
-                                        <p>Mặt bằng</p>
-                                        <p>Biệt thự</p>
-
-                                    </Col>
-                                    <Col lg="4">
-                                        <p>Nhà phố</p>
-                                        <p>ShopHouse</p>
-                                        <p>Mặt bằng</p>
-                                    </Col> */}
 
                                     <Col xs="6" md="4">
                                         <p>Căn hộ</p>

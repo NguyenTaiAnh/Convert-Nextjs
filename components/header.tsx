@@ -19,21 +19,13 @@ export default function Header() {
                 <div className="input-group">
                     <select>
                         <option value="0">Mua nhà</option>
+                        <option value="1">Thuê nhà</option>
                     </select>
                     <input type="text" className="form-control" placeholder="Search" />
 
                 </div>
             </Form>
-            {/* <Form className="mr-auto my-auto w-100 d-inline-block order-1">
-            <div className="input-group" />
-                <input type="text" className="form-control border border-right-0" placeholder="Search...">
-                <span className="input-group-append">
-                    <button className="btn btn-outline-light border border-left-0" type="button">
-                        <i className="fa fa-search"></i>
-                    </button>
-                </span>
-                </input>
-         </Form> */}
+
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
