@@ -14,33 +14,34 @@
     border-bottom: 1px solid #80808059;
 }
 //===========right=============
-.item-right{
+// .item-right{
     
-    width: 100%;
-    height: 24%;
-    border: 1px solid red;
-}
+//     width: 100%;
+//     height: 24%;
+//     border: 1px solid red;
+// }
 .stickyy{
     position: sticky;
     top: 55px;
-    z-index: 1020;
+    z-index: 1;
     
 }
 .sticky-menu{
     position: sticky;
     top: 0;
-    z-index: 1020;
+    z-index: 1021;
 }
-.changeImg{
-    width: 100%;
-    border-radius: 40px;
+.change-Img{
+    width: 50px;
+    height: 50px;
+    border-radius: 90px;
 }
-.topItem{
+.top-Item{
     background: #f4f4f4;
     margin: 0px !important;
-   padding: 10px;
+   padding: 10px 40px;
 }
-.nameItem{
+.name-Item{
     font-size: 20px;
     color: #cc3332;
     font-weight: bold;

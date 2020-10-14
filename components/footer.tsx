@@ -76,7 +76,7 @@ export default function Footer() {
                             <hr style={{ border: "1px solid blue" }} />
                         </Col>
                     </Row>
-                    <Row style={{ fontSize: "14px" }}>
+                    <Row style={{ fontSize: "14px", paddingBottom:"20px" }}>
                         <Col md="7">
                             <a href="#" className="footer-end">Nhóm phát triển alphaland</a>
                         </Col>

@@ -228,24 +228,27 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 </Row>
                                 <hr />
                                 <p className="titlee">Hình ảnh <span className="textt">{data.propertyName}</span></p>
-                                <img src={data.propertyDraftUrl} alt="" />
+                                <img src={data.propertyDraftUrl} style={{width:"100%"}} alt="" />
 
 
                             </div>
 
                         </Col>
+                        {/* -----------------------Item Right------------------------ */}
                         <Col xs="12" md="4">
                             <div className="item-right stickyy">
+                                <Card>
                                 <div >
-                                    <Row className="topItem">
-                                        <Col lg="4" >
-                                            <img src="/img/meo.jpg" alt="img" className="changeImg" />
+                                    <Row className="top-Item">
+                                        <Col xs="2" lg="2" style={{padding:"0"}} >
+                                            <img src="/img/meo.jpg" alt="img" className="change-Img" />
                                         </Col>
-                                        <Col lg="8">
-                                            <p className="nameItem">{contactData.contactName}</p>
+                                        <Col xs="10" lg="10">
+                                            <p className="name-Item">{contactData.contactName}</p>
                                             <p>{contactData.jobTitle}</p>
                                         </Col>
                                     </Row>
+                                    
                                 </div>
                                 <div style={{ textAlign: "center" }}>
                                     <button className="btn_tuvan">Liên hệ tư vấn</button>
@@ -262,6 +265,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <div style={{ textAlign: "center" }}>
                                     <button className="btn_hover">Hỏi thêm thông tin</button>
                                 </div>
+                                </Card>
                             </div>
 
                         </Col>
