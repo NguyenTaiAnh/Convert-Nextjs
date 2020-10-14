@@ -1,0 +1,47 @@
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+  }
+  
+#menu ul li {
+    float: left;
+    
+    width: 220px;
+    font-size: 14px;
+  }
+  
+#menu ul li a {
+    display: block;
+    color: #29a1d4;
+
+    text-decoration: none;
+  }
+  
+.bgr-footer{
+    background: black;
+    color: white;
+    padding: 32px 20px 0 20px;
+}
+p{
+  padding: 0;
+  margin: 0 !important;
+}
+#info_cty ul{
+  list-style: none;
+  padding: 0px;
+  margin:0px
+}
+#info_cty ul li a{
+  color: white;
+}
+#info_cty ul li a:hover{
+  padding-left: 5px;
+}
+.footer-end{
+  color: white;
+}
+.footer-end:hover{
+  color: rgb(88, 137, 226);
+}
