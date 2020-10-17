@@ -1,14 +1,25 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import React, { useState,useEffect } from 'react'
 interface IProps{
-    detail:any,
+
 }
 interface IState{
 
 }
 
+
 export default function BodyTop (props:IProps){
-    const [detail, setDatail] = useState({})
+    const [detail, setDatail] = useState({
+        propertyName:null,
+        propertyCode:null,
+        propertyRoad:null,
+        propertySellPrice:null,
+        propertyDistrict:null,
+        propertyProvince:null,
+        propertyBedRooms:null,
+        propertyBathRooms:null,
+        propertySquare:null,
+    })
 
     useEffect(() => {
         console.log('Component DId mount')
@@ -37,7 +48,9 @@ export default function BodyTop (props:IProps){
                     <li style={{marginRight:"20px"}}><i className="fas fa-bath"></i>  {detail.propertyBathRooms}</li>
                     <li style={{marginRight:"20px"}}><i className="far fa-compass"></i>  Đông</li>
                     <li style={{marginRight:"20px"}}><i className="fas fa-vector-square"></i>  {detail.propertySquare} m²</li>
+
                     <li><i className="fas fa-dollar-sign"></i>  {detail.propertySellPrice}</li>
+                    {/* <li><i className="fas fa-dollar-sign"></i>  {detail.propertySellPrice.to('it-IT', {style : 'currency', currency : 'VND'})}</li> */}
                 </ul>
                 <div style={{margin:"16px 0"}}>
                 <span> <i className="fas fa-tags"></i> (Chưa có)</span>

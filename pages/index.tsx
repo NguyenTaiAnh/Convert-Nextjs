@@ -1,23 +1,35 @@
 import Head from 'next/head'
 // import styles from '../styles/Home.module.css'
-import HEADER from '../components/header'
-import SLIDER from '../components/slide'
-import BODYTOP from '../components/bodytop'
-import BODYCENTER from '../components/bodycenter'
-import FOOTER from '../components/footer'
-
+// import HEADER from '../components/header'
+import Slider from '../components/Slide'
+import BodyTop from '../components/Body/BodyTop'
+import BodyCenter from '../components/Body/BodyCenter'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavDropdown, NavbarBrand, Card } from 'react-bootstrap'
+import Child from '../components/child'
 
 export default function Home() {
   return (
     
 
       <main>
-        <HEADER></HEADER>
-        <SLIDER></SLIDER>
-        <BODYTOP></BODYTOP>
-        <BODYCENTER></BODYCENTER>
-        <FOOTER></FOOTER>
+        {/* <HEADER></HEADER> */}
+        <Header />
+        <Child
+          title="day la title A"
+        >
+          <h3>AAAAAAAAAAAAAAAAAAAA</h3>
+        </Child>
+        <Child
+          title="day la title B"
+        >
+          <h3>BBBBBBBBBBBBBBBBBBBB</h3>
+        </Child>
+        <Slider />
+        <BodyTop />
+        <BodyCenter/>
+        <Footer/>
       </main>
   
   )
