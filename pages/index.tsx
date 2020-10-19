@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         {/* <HEADER></HEADER> */}
         <Header />
-        <Child
+        {/* <Child
           title="day la title A"
         >
           <h3>AAAAAAAAAAAAAAAAAAAA</h3>
@@ -25,7 +25,7 @@ export default function Home() {
           title="day la title B"
         >
           <h3>BBBBBBBBBBBBBBBBBBBB</h3>
-        </Child>
+        </Child> */}
         <Slider />
         <BodyTop />
         <BodyCenter/>

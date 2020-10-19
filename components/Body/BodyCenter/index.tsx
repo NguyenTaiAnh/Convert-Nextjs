@@ -101,7 +101,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 {/* ----------------------------Thong tin co ban--------------------------------------------- */}
 
                                 <hr />
-                                {/* <Accordion defaultActiveKey={this.state.activeId} >
+                                <Accordion defaultActiveKey="0" >
 
                                 <Row>
                                     <Col lg="10" sm="10">
@@ -109,8 +109,8 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                                     </Col>
                                     <Col lg="2" sm="2" className="icon-click">
-                                        <Accordion.Toggle onClick={() => this.toggleActive(0)} className="btn-css" as={Button} variant="link" eventKey="0">
-                                            {this.state.activeId===0 
+                                        <Accordion.Toggle  className="btn-css" as={Button} variant="link" eventKey="0">
+                                            {this.state.activeId !==null 
                                              ? <i className="fas fa-angle-up" id="selector"></i> 
                                              :  <i className="fas fa-angle-down" id="selector"></i>
                                              }
@@ -139,63 +139,12 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                     </Col>
                                 </Row>
                                 </Accordion.Collapse>
-                                <hr></hr>
-                                    <Row>
-                                        <Col lg="10" sm="10">
-                                            <p className="titlee">Loại hình <span className="textt">{data.propertyName}</span></p>
 
-                                        </Col>
-                                        <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={() => this.toggleActive(2)} className="btn-css" as={Button} variant="link" eventKey="2">
-                                            {this.state.activeId===2 
-                                             ? <i className="fas fa-angle-up" id="selector"></i> 
-                                             :  <i className="fas fa-angle-down" id="selector"></i>
-                                             }
-                                            </Accordion.Toggle>
-                                        </Col>
-                                    </Row>
-                                    <Accordion.Collapse eventKey="2">
+                                </Accordion> 
 
-                                        <Row style={{ fontSize: "14px" }}>
-
-                                            <Col xs="6" md="4">
-                                                <p>Căn hộ</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Văn phòng</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Đất nền</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Khác</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Officetel</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Mặt bằng</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Biệt thự</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Nhà phố</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>ShopHouse</p>
-                                            </Col>
-                                            <Col xs="6" md="4">
-                                                <p>Mặt bằng</p>
-                                            </Col>
-                                        </Row>
-                                    </Accordion.Collapse>
-
-                                </Accordion> */}
-
-                                {/* <hr /> */}
+                                 <hr />
                                 {/* --------------------------Loại hình-------------------- */}
-                                {/* <Accordion defaultActiveKey="0">
+                                <Accordion defaultActiveKey="0">
 
                                     <Row>
                                         <Col lg="10" sm="10">
@@ -203,7 +152,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                                         </Col>
                                         <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={() => this.toggleActive(0)} className="btn-css" as={Button} variant="link" eventKey="0">
+                                            <Accordion.Toggle className="btn-css" as={Button} variant="link" eventKey="0">
                                             {this.state.activeId!==null 
                                              ? <i className="fas fa-angle-up" id="selector"></i> 
                                              :  <i className="fas fa-angle-down" id="selector"></i>
@@ -247,7 +196,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                             </Col>
                                         </Row>
                                     </Accordion.Collapse>
-                                </Accordion> */}
+                                </Accordion>
 
                                 <hr />
 
@@ -255,7 +204,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                             {/* =======================Tiện ích============================== */}
                             <div id="tienich" >
-                                <Accordion defaultActiveKey={this.state.activeId}>
+                                <Accordion defaultActiveKey="0">
 
                                     <Row>
                                         <Col lg="10" sm="10">
@@ -263,15 +212,15 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                                         </Col>
                                         <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={()=>this.toggleActive('2')} className="btn-css" as={Button} variant="link" eventKey="2">
-                                            {this.state.activeId==='2'
+                                            <Accordion.Toggle className="btn-css" as={Button} variant="link" eventKey="0">
+                                            {this.state.activeId !== null
                                              ? <i className="fas fa-angle-up" id="selector"></i> 
                                              :  <i className="fas fa-angle-down" id="selector"></i>
                                              }
                                             </Accordion.Toggle>
                                         </Col>
                                     </Row>
-                                    <Accordion.Collapse eventKey="2">
+                                    <Accordion.Collapse eventKey="0">
                                         <Row style={{ fontSize: "14px" }}>
                                             <Col xs="6" md="4">
                                                 <p>Internet</p></Col>
@@ -304,22 +253,22 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 </Accordion>
                                 <hr />
                                 {/* -------------------------Noi that ------------- */}
-                                <Accordion defaultActiveKey={this.state.activeId}>
+                                <Accordion defaultActiveKey="0">
                                     <Row>
                                         <Col lg="10" sm="10">
                                             <p className="titlee">Nội thất <span className="textt">{data.propertyName}</span></p>
 
                                         </Col>
                                         <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={()=>this.toggleActive('3')} className="btn-css" as={Button} variant="link" eventKey="3">
-                                            {this.state.activeId==='3'
-                                             ? <i className="fas fa-angle-down" id="selector"></i> 
-                                             :  <i className="fas fa-angle-up" id="selector"></i>
+                                            <Accordion.Toggle  className="btn-css" as={Button} variant="link" eventKey="0">
+                                            {this.state.activeId!==null
+                                             ? <i className="fas fa-angle-up" id="selector"></i> 
+                                             :  <i className="fas fa-angle-down" id="selector"></i>
                                              }
                                             </Accordion.Toggle>
                                         </Col>
                                     </Row>
-                                    <Accordion.Collapse eventKey="3">
+                                    <Accordion.Collapse eventKey="0">
                                         <Row style={{ fontSize: "14px" }}>
                                             <Col xs="6" md="4">
                                                 <p>Ghế sô pha</p></Col>
@@ -366,21 +315,21 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 </Accordion>
                                 <hr />
                                 {/* ----------------------Thong tin dang chu y------------- */}
-                                <Accordion defaultActiveKey={this.state.activeId}>
+                                <Accordion defaultActiveKey="0">
                                     <Row>
                                         <Col lg="10" sm="10">
                                             <p className="titlee">Thông tin đáng chú ý <span className="textt">{data.propertyName}</span></p>
                                         </Col>
                                         <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={()=>this.toggleActive('4')} className="btn-css" as={Button} variant="link" eventKey="4">
-                                            {this.state.activeId==='4' 
+                                            <Accordion.Toggle className="btn-css" as={Button} variant="link" eventKey="0">
+                                            {this.state.activeId !== null 
                                              ? <i className="fas fa-angle-up" id="selector"></i> 
                                              :  <i className="fas fa-angle-down" id="selector"></i>
                                              }
                                             </Accordion.Toggle>
                                         </Col>
                                     </Row>
-                                    <Accordion.Collapse eventKey="4">
+                                    <Accordion.Collapse eventKey="0">
                                         <Row>
                                             <Col lg="4" className="note-info" >
                                                 <p>ĐẶC ĐIỂM NỔI BẬT </p>
@@ -416,21 +365,21 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                     </Accordion.Collapse>
                                 </Accordion>
                                 <hr />
-                                <Accordion defaultActiveKey={this.state.activeId}>
+                                <Accordion defaultActiveKey="0">
                                     <Row>
                                         <Col lg="10" sm="10">
                                             <p className="titlee">Hình ảnh <span className="textt">{data.propertyName}</span></p>
                                         </Col>
                                         <Col lg="2" sm="2" className="icon-click">
-                                            <Accordion.Toggle onClick={()=>this.toggleActive('5')} className="btn-css" as={Button} variant="link" eventKey="5">
-                                            {this.state.activeId==='5' 
+                                            <Accordion.Toggle className="btn-css" as={Button} variant="link" eventKey="0">
+                                            {this.state.activeId!==null 
                                              ? <i className="fas fa-angle-up" id="selector"></i> 
                                              :  <i className="fas fa-angle-down" id="selector"></i>
                                              }
                                             </Accordion.Toggle>
                                         </Col>
                                     </Row>
-                                    <Accordion.Collapse eventKey="5">
+                                    <Accordion.Collapse eventKey="0">
                                         <img src={data.propertyDraftUrl} style={{ width: "100%" }} alt="" />
                                     </Accordion.Collapse>
                                 </Accordion>
