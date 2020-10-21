@@ -1,13 +1,14 @@
 import Head from 'next/head'
 // import styles from '../styles/Home.module.css'
 // import HEADER from '../components/header'
-import Slider from '../components/Slide'
-import BodyTop from '../components/Body/BodyTop'
-import BodyCenter from '../components/Body/BodyCenter'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Slider from '../components/slide'
+import BodyTop from '../components/body/body-top'
+import BodyCenter from '../components/body/body-content'
+import Footer from '../components/footer'
+import Header from '../components/header'
 import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavDropdown, NavbarBrand, Card } from 'react-bootstrap'
 import Child from '../components/child'
+import { Test } from '../components/Test'
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         >
           <h3>BBBBBBBBBBBBBBBBBBBB</h3>
         </Child> */}
+        <Test/>
         <Slider />
         <BodyTop />
         <BodyCenter/>

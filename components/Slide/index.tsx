@@ -9,8 +9,9 @@ export default class Slide extends React.Component<any, any>{
         super(props);
 
         this.state = {
-            images: ['/img/chungcu.jpg','/img/3.jpg'],
-            current: ''
+            images: ['/img/chungcu.jpg'],
+            current: '',
+            
         }
     }
 
@@ -45,11 +46,11 @@ export default class Slide extends React.Component<any, any>{
         const { images, current } = this.state;
 
         return (
-            <div style={{ width: "50%", textAlign: "center" }}>
+            <div style={{ width:"50%", textAlign: "center",display:"contents" }}>
             {/* <div> */}
                 <Slider {...settings}>
                     {images.map(image => (
-                        <img src={image} onClick={e => this.handleClickImage(e, image)} />
+                        <img src={image} style={{width:"50% !important"}} onClick={e => this.handleClickImage(e, image)} />
 
                     ))}
                 </Slider>
