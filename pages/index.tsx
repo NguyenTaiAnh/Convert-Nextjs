@@ -6,9 +6,8 @@ import BodyTop from '../components/body/body-top'
 import BodyCenter from '../components/body/body-content'
 import Footer from '../components/footer'
 import Header from '../components/header'
-import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavDropdown, NavbarBrand, Card } from 'react-bootstrap'
-import Child from '../components/child'
-import { Test } from '../components/Test'
+// import Child from '../components/child'
+import Test from '../components/Test'
 
 export default function Home() {
   return (
@@ -27,11 +26,12 @@ export default function Home() {
         >
           <h3>BBBBBBBBBBBBBBBBBBBB</h3>
         </Child> */}
-        <Test/>
+        {/* <Test/> */}
         <Slider />
         <BodyTop />
         <BodyCenter/>
         <Footer/>
+        
       </main>
   
   )

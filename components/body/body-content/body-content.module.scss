@@ -35,6 +35,27 @@
     top: 0;
     z-index: 1021;
 }
+.divider{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after,
+    &::before{
+        content: "";
+        width: 100%;
+        height: 2px;
+    }
+
+    &::before{
+        background-image: linear-gradient(90deg,#fff,hsla(0,0%,84%,.2),hsla(0,0%,84%,.4),hsla(0,0%,84%,.6),hsla(0,0%,84%,.8));
+    }
+    &::after{
+        background-image: linear-gradient(270deg,#fff,hsla(0,0%,84%,.2),hsla(0,0%,84%,.4),hsla(0,0%,84%,.6),hsla(0,0%,84%,.8));    }
+    span{
+        padding: 0 10px;
+    }
+    }
 
 .change-img {
     width: 50px;

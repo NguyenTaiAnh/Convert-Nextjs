@@ -1,12 +1,13 @@
 import { Container, Row, Col } from 'react-bootstrap'
+import style from './footer.module.scss'
 export default function Footer() {
     return (
         <>
-            <div className="bgr-footer">
+            <div className={style['bgr-footer']}>
                 <Container>
                     <Row>
                         <Col md="12">
-                            <div id="menu">
+                            <div id={style.menu}>
                                 <ul>
                                     <li>
                                         Hotline(24/7)
@@ -38,7 +39,7 @@ export default function Footer() {
                         </Col>
                         <Col xs="12" md="2">
                             <p>CÔNG TY</p>
-                            <div id="info_cty">
+                            <div id={style.info_cty}>
                                 <ul>
                                     <li><a href="#">Blog Alphaland</a></li>
                                     <li><a href="#">Tuyển dụng</a></li>
@@ -50,7 +51,7 @@ export default function Footer() {
                         </Col>
                         <Col xs="12" md="2">
                             <p>DỊCH VỤ</p>
-                            <div id="info_cty">
+                            <div id={style.info_cty}>
                                 <ul>
                                     <li><a href="#">Vì sao chọn Alphaland</a></li>
                                     <li><a href="#">Bán và cho thuê</a></li>
@@ -62,7 +63,7 @@ export default function Footer() {
                         </Col>
                         <Col xs="12" md="2">
                             <p>THÔNG TIN</p>
-                            <div id="info_cty">
+                            <div id={style.info_cty}>
                                 <ul>
                                     <li><a href="#">Tin tức thị trường</a></li>
                                     <li><a href="#">Báo cáo và phân tích</a></li>
@@ -78,20 +79,29 @@ export default function Footer() {
                     </Row>
                     <Row style={{ fontSize: "14px", paddingBottom:"20px" }}>
                         <Col md="7">
-                            <a href="#" className="footer-end">Nhóm phát triển alphaland</a>
+                            <a href="#" className={style['footer-end']}>Nhóm phát triển alphaland</a>
                         </Col>
                         <Col md="2">
-                            <a href="#" className="footer-end">Chính sách bảo mật</a>
+                            <a href="#" className={style['footer-end']}>Chính sách bảo mật</a>
                         </Col>
                         <Col md="2">
-                            <a href="#" className="footer-end">Điều khoản sử dụng</a>
+                            <a href="#" className={style['footer-end']}>Điều khoản sử dụng</a>
                         </Col>
                         <Col md="1">
-                            <a href="#" className="footer-end">Phản hồi </a>
+                            <a href="#" className={style['footer-end']}>Phản hồi </a>
                         </Col>
                     </Row>
                 </Container>
+                
             </div>
+            <style jsx>
+                    {`
+                        p {
+                        padding: 0;
+                        margin: 0 !important;
+                        }
+                    `}
+                </style>
         </>
     )
 }
