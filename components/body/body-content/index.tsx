@@ -1,7 +1,9 @@
 import React from 'react'
-import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, Card, Accordion, Button,Carousel } from 'react-bootstrap'
+import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, Card, Accordion, Button, Carousel } from 'react-bootstrap'
 // import "./body"
 import style from './body-content.module.scss'
+import Slider from 'react-slick'
+
 interface IProps {
 
 }
@@ -26,19 +28,6 @@ export default class BodyCenter extends React.Component<IProps, IState> {
         super(props)
 
     }
-
-    //  toggleActive(id:string){
-    //     if (this.state.activeId === id) {
-    //       this.setState({
-    //         activeId:null
-    //       });
-    //     } else {
-    //         this.setState({
-    //             activeId:id
-    //           });
-    //     }
-    //     console.log(this.state.activeId)
-    //   }
 
     componentDidMount() {
         fetch('https://alphaland.com.vn/api/v1/common/nha/can-ho-vista-verde')
@@ -65,21 +54,29 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
     //custon accodion
     render() {
-
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 2
+        };
         const { data2, data, contactData, residentialarea } = this.state
 
-        console.log('data', data2);
+        // console.log('data', data2);
         const arrLocation7 = data2.filter(item => item.id === 7)
+        const arrLocation5 = data2.filter(item => item.id === 5)
         // console.log('contactData',contactData.contactName);
         return (
 
             <>
 
                 <Container fluid className={style['sticky-menu']}>
+                    <div className={style.container_navbar}>
                     <Row >
                         <Col sm="12" lg="12" md="12" style={{ padding: "0", }} >
                             <Nav className="ml-auto navbar-light bg-light" id="myHeader" >
-                                <Nav.Link style={{ color: "black", fontWeight: "bold", marginLeft: "100px" }} href="#tongquan">TỔNG QUAN</Nav.Link>
+                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tongquan">TỔNG QUAN</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tienich">TIỆN ÍCH</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#vitri">VỊ TRÍ</Nav.Link>
                                 <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
@@ -87,6 +84,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </Col>
 
                     </Row>
+                    </div>
                 </Container>
                 <hr style={{ marginTop: "0" }} />
 
@@ -99,7 +97,9 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <p className={style.title}>Giới thiệu <span className={style.text}>{data.propertyName}</span></p>
                                 {/* -------------------------------------------------------------------------------------- */}
                                 <div className="gioi-thieu">
+                                    {/* =========================================================== */}
                                     <div className="collaspe-show" contentEditable='false' dangerouslySetInnerHTML={{ __html: data.propertyDescription }}></div>
+                                    {/* =========================================================== */}
 
                                     <a href="#show" className="hide" id="hide">Thu gọn</a>
                                     <a href="#hide" className="show" id="show">Xem thêm</a>
@@ -458,80 +458,105 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </Col>
                     </Row>
                     {/* ======================================================================================== */}
+                    <Slider {...settings}>
+                        
+                        <div className={style.edit_card}>
+                        {arrLocation7.map((item, index) => (
+                            <Card key={index} >
+                                <Card.Img variant="top" src="/img/img1.jpg" />
+                                <Card.Body>
+                                    <Card.Text>
+                                        <p className={style.hide_paragraph}>
+                                            {item.propertyCode} • <a>{item.propertyName}</a> • <a>{item.propertyDistrict}</a> • <a>{item.propertyRoad}</a>
+                                        </p></Card.Text>
+                                    <Card.Title style={{fontSize:"15px",fontWeight:"bold",height:"10vh"}}>{item.propertyName} </Card.Title>
+                                    <hr/>
+                                    <ul className={style.list}>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
+
+                                    </ul>
+                                </Card.Body>
+                            </Card>
+                        ))}
+                        </div>
+                        <div className={style.edit_card}>
+                        {arrLocation5.map((item, index) => (
+                            <Card key={index}>
+                                <Card.Img variant="top" src="/img/img1.jpg" />
+                                <Card.Body>
+                                    <Card.Text>
+                                        <p className={style.hide_paragraph}>
+                                            {item.propertyCode} • <a>{item.placeName}</a> • <a>{item.propertyDistrict}</a>
+                                        </p></Card.Text>
+                                    <Card.Title style={{fontSize:"15px",fontWeight:"bold",height:"10vh"}}>{item.propertyName} </Card.Title>
+                                    <hr/>
+                                    <ul className={style.list}>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
+                                        <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
+
+                                    </ul>
+                                </Card.Body>
+                            </Card>
+                        ))}
+                        </div>
+                    </Slider>
 
 
-                    <Carousel >
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="./img/chungcu.jpg"
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="./img/chungcu.jpg"
-                                alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="./img/chungcu.jpg"
-                                alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
 
 
 
                     {/* ======================================================================================== */}
 
                     {/* <Row style={{ textAlign: "center" }}>
-                        
-                            {arrLocation7.map((item,index)=> (
-                                <Card key={index} style={{ width: '50%' }}>
-                                <Card.Img variant="top" src="/img/img1.jpg" />
-                                <Card.Body>
-                                    <Card.Text>
-                                   <p> 
-                                       {item.propertyCode} • <a>{item.propertyName}</a> • <a>{item.propertyDistrict}</a> • <a>{item.propertyRoad}</a>
-                                   </p></Card.Text>
-                                    <Card.Title>{item.propertyName} </Card.Title>
+                        <Col lg="6" md="6">
+                            {arrLocation7.map((item, index) => (
+                                <Card key={index} style={{ width: '50%', height: "100%" }}>
+                                    <Card.Img variant="top" src="/img/img1.jpg" />
+                                    <Card.Body>
+                                        <Card.Text>
+                                            <p>
+                                                {item.propertyCode} • <a>{item.propertyName}</a> • <a>{item.propertyDistrict}</a> • <a>{item.propertyRoad}</a>
+                                            </p></Card.Text>
+                                        <Card.Title>{item.propertyName} </Card.Title>
+                                        <ul className={style.list}>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
 
-                                </Card.Body>
-                            </Card>
+                                        </ul>
+                                    </Card.Body>
+                                </Card>
                             ))}
-                            <Card style={{ width: '50%' }}>
-                                <Card.Img variant="top" src="/img/img1.jpg" />
-                                <Card.Body>
-                                    <Card.Title>abc</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                        </Col>
+                        <Col lg="6" md="6">
+                            {arrLocation5.map((item, index) => (
+                                <Card key={index} style={{ width: '50%', height: "100%" }}>
+                                    <Card.Img variant="top" src="/img/img1.jpg" />
+                                    <Card.Body>
+                                        <Card.Text>
+                                            <p>
+                                                {item.propertyCode} • <a>{item.placeName}</a> • <a>{item.propertyDistrict}</a>
+                                            </p></Card.Text>
+                                        <Card.Title>{item.propertyName} </Card.Title>
+                                        <ul className={style.list}>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
+                                            <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
+
+                                        </ul>
+                                    </Card.Body>
+                                </Card>
+                            ))}
+
+                        </Col>
                     </Row> */}
                 </Container>
                 <Container fluid>
                     <hr />
-                    {/* ==========================================Khu dan cuw======================================= */}
+                    {/* ==========================================Khu dan cu======================================= */}
                     <p className={style.title} style={{ textAlign: "center" }}>Khu dân cư</p>
                     <Container>
                         <Row>
@@ -539,8 +564,8 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <img src={residentialarea.avatarUrl} alt="" style={{ width: "100%" }} />
                             </Col>
                             <Col lg="6" md="6">
-                                <a href="" className="">{residentialarea.residentialName}</a>
-                                <p>{residentialarea.residentialName}</p>
+                                <a href="" className={style.title_dancu}>{residentialarea.residentialName}</a>
+                                <p style={{fontSize:"13px",fontWeight:"bold"}}>{residentialarea.residentialName}</p>
                                 <div contentEditable='false' dangerouslySetInnerHTML={{ __html: residentialarea.residentialDescription }}></div>
 
                             </Col>

@@ -56,7 +56,7 @@ export default class Slide extends React.Component<any, any>{
         const { images, current } = this.state;
         
         return (
-            <div style={{  textAlign: "center",background:"#495057" }}>
+            <div style={{  textAlign: "center",background:"#495057",overflow:"hidden" }}>
             {/* <div> */}
                 <Slider {...settings}>
                     {images.map(image => (
@@ -66,13 +66,13 @@ export default class Slide extends React.Component<any, any>{
                     <div></div>
                 </Slider>
 
-                {current &&
+                {/* {current &&
                     <Lightbox
                         mainSrc={current}
 
                         onCloseRequest={this.handleCloseModal}
                     />
-                }
+                } */}
                 <style jsx>
                 {`
                     .editImage{

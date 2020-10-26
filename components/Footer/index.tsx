@@ -1,7 +1,79 @@
+import { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import style from './footer.module.scss'
+
 export default function Footer() {
+    const [common, setCommon] = useState({
+        phone1: "",
+        phone2: "",
+        address: "",
+        emailTitle1: "",
+        email1: "",
+        emailTitle2: "",
+        email2: "",
+        emailTitle3: "",
+        email3: "",
+        phoneTitle1: "",
+        phoneTitle2: "",
+        title21: "",
+        link21: "",
+        title22: "",
+        link22: "",
+        title23: "",
+        link23: "",
+        menuGroup1: "",
+        menuGroup2: "",
+        menuGroup3: "",
+        copyright: "",
+        title1: "",
+        link1:"",
+        title2: "",
+        link2:"",
+        title3: "",
+        link3:"",
+        title4: "",
+        link4:"",
+        title5: "",
+        link5:"",
+        title6: "",
+        link6:"",
+        title7: "",
+        link7:"",
+        title8: "",
+        link8:"",
+        title9: "",
+        link9:"",
+        title10: "",
+        link10:"",
+        title11: "",
+        link11:"",
+        title12: "",
+        link12:"",
+        title13: "",
+        link13:"",
+        title14: "",
+        link14:"",
+        title15: "",
+        link15:"",
+
+    })
+    useEffect(() => {
+        fetch("https://alphaland.com.vn/api/v1/common/companies?cacheBuster=1603444559723")
+            .then(res => res.json())
+            .then(data => {
+                const dataCommon: any = data[0]
+                setCommon(dataCommon)
+            })
+            .catch(err => console.log("loi: ", err)
+            )
+
+    }, [])
+
+    // console.log("data", common.phone1||'');
+    console.log("data", common.phone1);
+
     return (
+
         <>
             <div className={style['bgr-footer']}>
                 <Container>
@@ -10,98 +82,105 @@ export default function Footer() {
                             <div id={style.menu}>
                                 <ul>
                                     <li>
-                                        Hotline(24/7)
-                                    <a href="#">091 9751079</a></li>
-                                    <li>Khiếu nại, phản hồi
-                                <a href="#">091 9751079</a>
+                                        {common.phoneTitle1}
+                                        <a href="#">{common.phone1}</a></li>
+                                    <li>{common.phoneTitle2}
+                                        <a href="#">{common.phone2}</a>
                                     </li>
-                                    <li>Hợp tác với Alphaland
-                                <a href="mailto:info@alphaland.com.vn" >info@alphaland.com.vn</a>
+                                    <li>{common.emailTitle1}
+                                        <a href="mailto:info@alphaland.com.vn" >{common.email1}</a>
                                     </li>
-                                    <li>Bộ phận kinh doanh
-                                <a href="mailto:sales@alphaland.com.vn">sales@alphaland.com.vn</a>
+                                    <li>{common.emailTitle2}
+                                        <a href="mailto:sales@alphaland.com.vn">{common.email2}</a>
                                     </li>
-                                    <li>Chăm sóc khách hàng
-                                <a href="mailto:support@alphaland.com.vn">support@alphaland.com.vn</a>
+                                    <li>{common.emailTitle3}
+                                        <a href="mailto:support@alphaland.com.vn">{common.email3}</a>
                                     </li>
                                 </ul>
                             </div>
                         </Col>
                         <Col md="12">
-                            <hr style={{ border: "1px solid blue" }} />
+                            <hr style={{ border: "1px solid #29a1d4" }} />
                         </Col>
 
                     </Row>
                     <Row style={{ fontSize: "14px" }}>
                         <Col xs="12" md="5">
                             <img src="" alt="logo" />
-                            <p>111 Trương Văn Bang P. Thạnh Mỹ Lợi, Quận 2, Tp Hồ Chí Minh</p>
+                            <p>{common.address}</p>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>CÔNG TY</p>
+                            <p>{common.menuGroup1}</p>
                             <div id={style.info_cty}>
                                 <ul>
-                                    <li><a href="#">Blog Alphaland</a></li>
-                                    <li><a href="#">Tuyển dụng</a></li>
-                                    <li><a href="#">Đội ngũ</a></li>
-                                    <li><a href="#">Sàn giao dịch</a></li>
-                                    <li><a href="#">Liên hệ</a></li>
+                                    <li><a href={common.link1}>{common.title1}</a></li>
+                                    <li><a href={common.link2}>{common.title2}</a></li>
+                                    <li><a href={common.link3}>{common.title3}</a></li>
+                                    <li><a href={common.link4}>{common.title4}</a></li>
+                                    <li><a href={common.link5}>{common.title5}</a></li>
+
                                 </ul>
                             </div>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>DỊCH VỤ</p>
+                            <p>{common.menuGroup2}</p>
                             <div id={style.info_cty}>
                                 <ul>
-                                    <li><a href="#">Vì sao chọn Alphaland</a></li>
-                                    <li><a href="#">Bán và cho thuê</a></li>
-                                    <li><a href="#">Mua với Alphaland</a></li>
-                                    <li><a href="#">Thuê với Alphaland</a></li>
-                                    <li><a href="#">Chuyên viên Alphaland</a></li>
+                                    <li><a href={common.link6}>{common.title6}</a></li>
+                                    <li><a href={common.link7}>{common.title7}</a></li>
+                                    <li><a href={common.link8}>{common.title8}</a></li>
+                                    <li><a href={common.link9}>{common.title9}</a></li>
+                                    <li><a href={common.link10}>{common.title10}</a></li>
+
+                                    
                                 </ul>
                             </div>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>THÔNG TIN</p>
+                            <p>{common.menuGroup3}</p>
                             <div id={style.info_cty}>
                                 <ul>
-                                    <li><a href="#">Tin tức thị trường</a></li>
-                                    <li><a href="#">Báo cáo và phân tích</a></li>
-                                    <li><a href="#">Cẩm nang nhà đất</a></li>
-                                    <li><a href="#">Trung tâm đào tạo</a></li>
-                                    <li><a href="#">Hướng dẫn sử dụng</a></li>
+                                    <li><a href={common.link11}>{common.title11}</a></li>
+                                    <li><a href={common.link12}>{common.title12}</a></li>
+                                    <li><a href={common.link13}>{common.title13}</a></li>
+                                    <li><a href={common.link14}>{common.title14}</a></li>
+                                    <li><a href={common.link15}>{common.title15}</a></li>
+
+                                    
                                 </ul>
                             </div>
                         </Col>
                         <Col md="12">
-                            <hr style={{ border: "1px solid blue" }} />
+                            <hr style={{ border: "1px solid #29a1d4" }} />
                         </Col>
                     </Row>
-                    <Row style={{ fontSize: "14px", paddingBottom:"20px" }}>
+                    <Row style={{ fontSize: "14px", paddingBottom: "20px" }}>
                         <Col md="7">
-                            <a href="#" className={style['footer-end']}>Nhóm phát triển alphaland</a>
+                            <div className={style['footer']} contentEditable='false' dangerouslySetInnerHTML={{ __html: common.copyright }}></div>
+
+                            {/* <a href="#" className={style['footer-end']}>Nhóm phát triển alphaland</a> */}
                         </Col>
                         <Col md="2">
-                            <a href="#" className={style['footer-end']}>Chính sách bảo mật</a>
+                            <a href={common.link21} className={style['footer-end']}>{common.title21}</a>
                         </Col>
                         <Col md="2">
-                            <a href="#" className={style['footer-end']}>Điều khoản sử dụng</a>
+                            <a href={common.link22} className={style['footer-end']}>{common.title22}</a>
                         </Col>
                         <Col md="1">
-                            <a href="#" className={style['footer-end']}>Phản hồi </a>
+                            <a href={common.link23} className={style['footer-end']}>{common.title23}</a>
                         </Col>
                     </Row>
                 </Container>
-                
+
             </div>
             <style jsx>
-                    {`
+                {`
                         p {
                         padding: 0;
                         margin: 0 !important;
                         }
                     `}
-                </style>
+            </style>
         </>
     )
 }

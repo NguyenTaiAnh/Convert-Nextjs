@@ -34,6 +34,7 @@
     position: sticky;
     top: 0;
     z-index: 1021;
+    background: #f8f9fa;
 }
 .divider{
     position: relative;
@@ -135,27 +136,31 @@
     font-weight: 500;
     color: #788087;
 }
-
-// .btn-css ::before{
-//     font-family: "Font Awesome 5 Free";
-//     content: "\f078";
-//     // content: "\f106";
-//     display: none;
-//     visibility: collapse;
-//    padding-right: 3px;
-//    vertical-align: middle;
-//    font-weight:900;
-// }
-// .btn-css::after{
-//     font-family: "Font Awesome 5 Free";
-//     content: "\f106";
-//    padding-right: 3px;
-//    vertical-align: middle;
-//    font-weight:900;
-// }
-// [data-toggle="collapse"].collapsed .if-not-collapsed {
-//     display: none !important;
-//   }
-//   [data-toggle="collapse"]:not(.collapsed) .if-collapsed {
-//     display: none !important;
-//   }
+.list{
+    padding:0;
+    list-style-type:none;
+    display:flex;
+    justify-content: center;
+}
+.edit_card{
+    width: 50% !important;
+    height: 50%;
+    text-align: center;
+    display: inline-flex;
+}
+.hide_paragraph{
+    text-overflow: ellipsis !important;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 12px;
+}
+.container_navbar{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px ;
+}
+.title_dancu{
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+}

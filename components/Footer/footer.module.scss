@@ -20,7 +20,7 @@
   }
   
 .bgr-footer{
-    background: black;
+    background: #0f2027;
     color: white;
     padding: 32px 20px 0 20px;
 }
@@ -46,4 +46,11 @@
 .footer-end:hover{
   color: rgb(88, 137, 226);
   text-decoration: none;
+}
+.footer a{
+  color: white;
+  &:hover{
+    color: rgb(88, 137, 226);
+  text-decoration: none;
+  }
 }
