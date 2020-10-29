@@ -58,7 +58,7 @@ export default class Slide extends React.Component<any, any>{
                     <Lightbox
                         mainSrc={current}
 
-                        onCloseRequest={this.handleCloseModal}
+                        onCloseRequest={()=>this.handleCloseModal}
                     />
                 }
             </div>
