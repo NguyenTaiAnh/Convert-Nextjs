@@ -69,8 +69,15 @@ export default function Footer() {
 
     }, [])
 
+    function showClick() {
+        console.log("test");
+        
+    }
+
+
+    
     // console.log("data", common.phone1||'');
-    console.log("data", common.phone1);
+    // console.log("data", common.phone1);
 
     return (
 
@@ -110,7 +117,7 @@ export default function Footer() {
                             <p>{common.address}</p>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>{common.menuGroup1}</p>
+                            <p className={style.name_title} onClick={showClick}>{common.menuGroup1}</p>
                             <div id={style.info_cty}>
                                 <ul>
                                     <li><a href={common.link1}>{common.title1}</a></li>
@@ -123,7 +130,7 @@ export default function Footer() {
                             </div>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>{common.menuGroup2}</p>
+                            <p className={style.name_title}>{common.menuGroup2}</p>
                             <div id={style.info_cty}>
                                 <ul>
                                     <li><a href={common.link6}>{common.title6}</a></li>
@@ -137,7 +144,7 @@ export default function Footer() {
                             </div>
                         </Col>
                         <Col xs="12" md="2">
-                            <p>{common.menuGroup3}</p>
+                            <p className={style.name_title}>{common.menuGroup3}</p>
                             <div id={style.info_cty}>
                                 <ul>
                                     <li><a href={common.link11}>{common.title11}</a></li>

@@ -54,13 +54,26 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
     //custon accodion
     render() {
-        const settings = {
-            dots: false,
-            infinite: true,
+        var settings = {
+            dots: true,
+            infinite: false,
             speed: 500,
             slidesToShow: 2,
-            slidesToScroll: 2
-        };
+            slidesToScroll: 2,
+            initialSlide: 0,
+            responsive: [
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              
+            ]
+          };
         const { data2, data, contactData, residentialarea } = this.state
 
         // console.log('data', data2);
@@ -446,7 +459,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                 <Container fluid style={{ padding: "0", marginBottom: "10px" }}>
                     <img src="/img/ggmap.jpg" alt="hình ảnh" style={{ width: "100%", height: "600px" }} />
                 </Container>
-
+              
 
                 {/* ==========================================Nha Dat Lan Can===================================== */}
                 <Container>
@@ -458,18 +471,20 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </Col>
                     </Row>
                     {/* ======================================================================================== */}
-                    <Slider {...settings}>
-                        
-                        <div className={style.edit_card}>
-                        {arrLocation7.map((item, index) => (
-                            <Card key={index} >
-                                <Card.Img variant="top" src="/img/img1.jpg" />
-                                <Card.Body>
+                    <Slider {...settings} className={style.edit_slider}>
+            
+                        <div  >
+                            {arrLocation7.map((item, index) => (
+                            <div key={index} className={style.edit_card}>
+                            <a href="#"><img src="/img/img1.jpg" className={style.edit_img}></img></a>
+                            <Card className={style.card} >
+                                {/* <Card.Img variant="top" src="/img/img1.jpg" /> */}
+                                <Card.Body className={style.card_body}>
                                     <Card.Text>
                                         <p className={style.hide_paragraph}>
-                                            {item.propertyCode} • <a>{item.propertyName}</a> • <a>{item.propertyDistrict}</a> • <a>{item.propertyRoad}</a>
+                                            {item.propertyCode} • <a href="#">{item.propertyName}</a> • <a href="#">{item.propertyDistrict}</a> • <a href="#">{item.propertyRoad}</a>
                                         </p></Card.Text>
-                                    <Card.Title style={{fontSize:"15px",fontWeight:"bold",height:"10vh"}}>{item.propertyName} </Card.Title>
+                                    <Card.Title className={style.title_card}><a href="#">{item.propertyName} </a> </Card.Title>
                                     <hr/>
                                     <ul className={style.list}>
                                         <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
@@ -478,19 +493,23 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                                     </ul>
                                 </Card.Body>
+                                <span className={`${style.price} ${style.pointy}` }>2.2 tỷ/căn</span>
                             </Card>
+                            </div>
                         ))}
                         </div>
-                        <div className={style.edit_card}>
+                        <div >
                         {arrLocation5.map((item, index) => (
-                            <Card key={index}>
-                                <Card.Img variant="top" src="/img/img1.jpg" />
-                                <Card.Body>
+                            <div key={index} className={style.edit_card} >
+                                <a href="#"><img src="/img/img1.jpg" className={style.edit_img} alt=""/></a>
+                            <Card className={style.card} >
+                                {/* <Card.Img variant="top" src="/img/img1.jpg" /> */}
+                                <Card.Body className={style.card_body} >
                                     <Card.Text>
                                         <p className={style.hide_paragraph}>
-                                            {item.propertyCode} • <a>{item.placeName}</a> • <a>{item.propertyDistrict}</a>
+                                            {item.propertyCode} • <a href="#">{item.placeName}</a> • <a href="#">{item.propertyDistrict}</a>
                                         </p></Card.Text>
-                                    <Card.Title style={{fontSize:"15px",fontWeight:"bold",height:"10vh"}}>{item.propertyName} </Card.Title>
+                                    <Card.Title className={style.title_card}><a href="#">{item.propertyName}</a> </Card.Title>
                                     <hr/>
                                     <ul className={style.list}>
                                         <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
@@ -498,12 +517,16 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                         <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
 
                                     </ul>
+
                                 </Card.Body>
+                                <span className={`${style.price} ${style.pointy}` }>2.2 tỷ/căn</span>
+
                             </Card>
+                            </div>
                         ))}
                         </div>
                     </Slider>
-
+                    
 
 
 
@@ -586,6 +609,12 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         padding: 0;
                         margin: 0 !important;
                       }
+                    img{
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                        vertical-align: middle;
+                    }
                     `
                 }
 
