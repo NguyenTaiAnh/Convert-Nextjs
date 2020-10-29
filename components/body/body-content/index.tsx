@@ -471,12 +471,17 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </Col>
                     </Row>
                     {/* ======================================================================================== */}
-                    <Slider {...settings} className={style.edit_slider}>
+                    <Slider {...settings}>
             
                         <div  >
                             {arrLocation7.map((item, index) => (
-                            <div key={index} className={style.edit_card}>
-                            <a href="#"><img src="/img/img1.jpg" className={style.edit_img}></img></a>
+                            <div key={index} className={style.edit_card} style={{marginLeft:"184px"}}>
+                            <a href="#">
+                                    <div className={style.cover}>
+                                    <img src={item.propertyAvatarUrl} className={style.edit_img} alt=""/>
+                                    <span className={style.distance}>3.3 km</span>
+                                    </div>
+                                </a>
                             <Card className={style.card} >
                                 {/* <Card.Img variant="top" src="/img/img1.jpg" /> */}
                                 <Card.Body className={style.card_body}>
@@ -500,10 +505,15 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </div>
                         <div >
                         {arrLocation5.map((item, index) => (
-                            <div key={index} className={style.edit_card} >
-                                <a href="#"><img src="/img/img1.jpg" className={style.edit_img} alt=""/></a>
+                            <div key={index} className={style.edit_card} style={{marginRight:"184px"}} >
+                                <a href="#">
+                                    <div className={style.cover}>
+                                    <img src={item.propertyAvatarUrl} className={style.edit_img} alt=""/>
+                                    <span className={style.distance}>4.9 km</span>
+
+                                    </div>
+                                </a>
                             <Card className={style.card} >
-                                {/* <Card.Img variant="top" src="/img/img1.jpg" /> */}
                                 <Card.Body className={style.card_body} >
                                     <Card.Text>
                                         <p className={style.hide_paragraph}>

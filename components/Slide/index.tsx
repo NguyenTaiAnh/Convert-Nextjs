@@ -66,13 +66,13 @@ export default class Slide extends React.Component<any, any>{
                     <div></div>
                 </Slider>
 
-                {/* {current &&
+                {current &&
                     <Lightbox
                         mainSrc={current}
 
-                        onCloseRequest={this.handleCloseModal}
+                        onCloseRequest={()=>this.handleCloseModal}
                     />
-                } */}
+                }
                 <style jsx>
                 {`
                     .editImage{
