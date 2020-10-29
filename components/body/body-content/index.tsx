@@ -89,10 +89,10 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                     <Row >
                         <Col sm="12" lg="12" md="12" style={{ padding: "0", }} >
                             <Nav className="ml-auto navbar-light bg-light" id="myHeader" >
-                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tongquan">TỔNG QUAN</Nav.Link>
-                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#tienich">TIỆN ÍCH</Nav.Link>
-                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#vitri">VỊ TRÍ</Nav.Link>
-                                <Nav.Link style={{ color: "black", fontWeight: "bold" }} href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#tongquan">TỔNG QUAN</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#tienich">TIỆN ÍCH</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#vitri">VỊ TRÍ</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
                             </Nav>
                         </Col>
 
