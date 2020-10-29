@@ -9,8 +9,9 @@ export default class Slide extends React.Component<any, any>{
         super(props);
 
         this.state = {
-            images: ['/img/chungcu.jpg','/img/3.jpg'],
-            current: ''
+            images: ['/img/chungcu.jpg'],
+            current: '',
+            
         }
     }
 
@@ -20,7 +21,17 @@ export default class Slide extends React.Component<any, any>{
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            appendDots: dots => (
+                <div
+                  style={{
+                    backgroundColor: "#495057",
+                    padding: "10px"
+                  }}
+                >
+                   <img src={this.state.images} style={{width:"10%"}} alt=""/> 
+                </div>
+              ),
         }
     }
 
@@ -43,15 +54,16 @@ export default class Slide extends React.Component<any, any>{
     render() {
         const settings = this.getSliderSettings();
         const { images, current } = this.state;
-
+        
         return (
-            <div style={{ width: "50%", textAlign: "center" }}>
+            <div style={{  textAlign: "center",background:"#495057",overflow:"hidden" }}>
             {/* <div> */}
                 <Slider {...settings}>
                     {images.map(image => (
-                        <img src={image} onClick={e => this.handleClickImage(e, image)} />
+                        <img src={image} className="editImage" onClick={e => this.handleClickImage(e, image)} />
 
                     ))}
+                    <div></div>
                 </Slider>
 
                 {current &&
@@ -61,6 +73,14 @@ export default class Slide extends React.Component<any, any>{
                         onCloseRequest={()=>this.handleCloseModal}
                     />
                 }
+                <style jsx>
+                {`
+                    .editImage{
+                        padding-top: 20px;
+                        width: 50% !important;
+                    }
+                `}
+                </style>
             </div>
         )
     }
