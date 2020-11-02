@@ -59,8 +59,8 @@ export default class Slide extends React.Component<any, any>{
             <div style={{  textAlign: "center",background:"#495057",overflow:"hidden" }}>
             {/* <div> */}
                 <Slider {...settings}>
-                    {images.map(image => (
-                        <img src={image} className="editImage" onClick={e => this.handleClickImage(e, image)} />
+                    {images.map((image, index) => (
+                        <img key={index} src={image} className="editImage" onClick={e => this.handleClickImage(e, image)} />
 
                     ))}
                     <div></div>
@@ -70,7 +70,7 @@ export default class Slide extends React.Component<any, any>{
                     <Lightbox
                         mainSrc={current}
 
-                        onCloseRequest={()=>this.handleCloseModal}
+                        onCloseRequest={this.handleCloseModal}
                     />
                 }
                 <style jsx>

@@ -475,7 +475,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
             
                         <div  >
                             {arrLocation7.map((item, index) => (
-                            <div key={index} className={style.edit_card} style={{marginLeft:"184px"}}>
+                            <div key={index} className={style.edit_card} >
                             <a href="#">
                                     <div className={style.cover}>
                                     <img src={item.propertyAvatarUrl} className={style.edit_img} alt=""/>
@@ -486,9 +486,9 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 {/* <Card.Img variant="top" src="/img/img1.jpg" /> */}
                                 <Card.Body className={style.card_body}>
                                     <Card.Text>
-                                        <p className={style.hide_paragraph}>
+                                        <span className={style.hide_paragraph}>
                                             {item.propertyCode} • <a href="#">{item.propertyName}</a> • <a href="#">{item.propertyDistrict}</a> • <a href="#">{item.propertyRoad}</a>
-                                        </p></Card.Text>
+                                        </span></Card.Text>
                                     <Card.Title className={style.title_card}><a href="#">{item.propertyName} </a> </Card.Title>
                                     <hr/>
                                     <ul className={style.list}>
@@ -505,7 +505,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </div>
                         <div >
                         {arrLocation5.map((item, index) => (
-                            <div key={index} className={style.edit_card} style={{marginRight:"184px"}} >
+                            <div key={index} className={style.edit_card}>
                                 <a href="#">
                                     <div className={style.cover}>
                                     <img src={item.propertyAvatarUrl} className={style.edit_img} alt=""/>
@@ -516,9 +516,9 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                             <Card className={style.card} >
                                 <Card.Body className={style.card_body} >
                                     <Card.Text>
-                                        <p className={style.hide_paragraph}>
+                                        <span className={style.hide_paragraph}>
                                             {item.propertyCode} • <a href="#">{item.placeName}</a> • <a href="#">{item.propertyDistrict}</a>
-                                        </p></Card.Text>
+                                        </span></Card.Text>
                                     <Card.Title className={style.title_card}><a href="#">{item.propertyName}</a> </Card.Title>
                                     <hr/>
                                     <ul className={style.list}>

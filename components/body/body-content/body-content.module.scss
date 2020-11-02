@@ -151,7 +151,8 @@
     // justify-content: space-between;
     padding: 30px;
     text-align: center;
-   
+    max-width: 380px;
+    margin: auto;
     
 }
 .hide_paragraph{
@@ -159,6 +160,10 @@
     overflow: hidden;
     white-space: nowrap;
     font-size: 12px;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 .slick-slide {
 	padding: 0 8px;

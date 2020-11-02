@@ -8,25 +8,15 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 // import Child from '../components/child'
 import Test from '../components/Test'
-
+import { BrowserRouter as Router,Link, Route} from 'react-router-dom'
 export default function Home() {
   return (
     
 
       <main>
-        {/* <HEADER></HEADER> */}
+        
         <Header />
-        {/* <Child
-          title="day la title A"
-        >
-          <h3>AAAAAAAAAAAAAAAAAAAA</h3>
-        </Child>
-        <Child
-          title="day la title B"
-        >
-          <h3>BBBBBBBBBBBBBBBBBBBB</h3>
-        </Child> */}
-        {/* <Test/> */}
+      
         <Slider />
         <BodyTop />
         <BodyCenter/>

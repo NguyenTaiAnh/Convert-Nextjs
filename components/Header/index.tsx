@@ -9,6 +9,13 @@ import {
 export default function Header() {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [show, setShow] = useState(false)
+    const showDropdown = (e) => {
+        setShow(!show)
+    }
+    const hideDropdown = e =>{
+        setShow(false)
+    }
 
     return (
         <Navbar className={style["nav-menu"]} bg="dar" expand="lg">
@@ -31,39 +38,68 @@ export default function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <NavLink className={style['nav-link']}><i className="fas fa-phone-alt"></i> 091 9751079</NavLink>
-                    <NavLink className={`${style.dropdown} ${style['nav-link']}`}>
+                    {/* <NavDropdown title="Mua" id="nav-dropdown">
+                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Thuê" id="nav-dropdown">
+                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Dự án" id="nav-dropdown">
+                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="Thông tin" id="nav-dropdown">
+                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+                    </NavDropdown> */}
+                    
+                    <NavItem className={`${style.dropdown} ${style['nav-link']}`}>
                         Mua <i className="fas fa-chevron-down"></i>
                         <div className={style['dropdown-content']}>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                         </div>
-                    </NavLink>
-                    <NavLink className={`${style.dropdown} ${style['nav-link']}`}>
+                    </NavItem>
+                    <NavItem className={`${style.dropdown} ${style['nav-link']}`}>
                         Thuê <i className="fas fa-chevron-down"></i>
                         <div className={style['dropdown-content']}>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                         </div>
-                    </NavLink>
-                    <NavLink className={`${style.dropdown} ${style['nav-link']}`}>
+                    </NavItem>
+                    <NavItem className={`${style.dropdown} ${style['nav-link']}`}>
                         Dự án <i className="fas fa-chevron-down"></i>
                         <div className={style['dropdown-content']}>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                         </div>
-                    </NavLink>
-                    <NavLink className={`${style.dropdown} ${style['nav-link']}`}>
+                    </NavItem>
+                    <NavItem className={`${style.dropdown} ${style['nav-link']}`}>
                         Thông tin <i className="fas fa-chevron-down"></i>
                         <div className={style['dropdown-content']}>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                             <a href="#">Test1</a>
                         </div>
-                    </NavLink>
-                    <p style={{borderLeft:"1px solid ",marginBottom:"0"}}></p>
+                    </NavItem>
+                    <p style={{ borderLeft: "1px solid ", marginBottom: "0" }}></p>
                     <NavLink className={style.singup}>Đăng ký</NavLink>
 
                     <NavLink className={style.login}>Đăng Nhập</NavLink>

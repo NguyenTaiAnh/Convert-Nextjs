@@ -10,19 +10,13 @@ import 'react-image-lightbox/style.css';
 // import '../styles/custom/header.scss'
 
 function MyApp({ Component, pageProps }) {
-    return ( <
-        div className = "root-app" >
-        <
-        Head >
-        <
-        title > Convert Nextjs < /title>
+    return (
+        <div className="root-app" >
+            <Head >
+                <title > Convert Nextjs </title>
 
-
-        <
-        /Head> <
-        Component {...pageProps }
-        /> <
-        /div>
+            
+            </Head> <Component {...pageProps} /> </div>
 
     )
 }
