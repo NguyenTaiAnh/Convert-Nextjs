@@ -534,7 +534,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                     <Row>
                         <Col lg="12">
                             <div id="nhadat">
-                                <p className={style.title} style={{ textAlign: "center" }}>Nhà đất lân cận</p>
+                                <p className={style.title1} style={{ textAlign: "center" }}>Nhà đất lân cận</p>
                             </div>
                         </Col>
                     </Row>
@@ -614,7 +614,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                 <Container fluid>
                     <hr />
                     {/* ==========================================Khu dan cu======================================= */}
-                    <p className={style.title} style={{ textAlign: "center" }}>Khu dân cư</p>
+                    <p className={style.title1} style={{ textAlign: "center" }}>Khu dân cư</p>
                     <Container>
                         <Row>
                             <Col lg="6" md="6">
@@ -629,14 +629,14 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         </Row>
                     </Container>
                     <hr />
-                    <p className={style.title} style={{ textAlign: "center" }}>Nhà đất tương tự</p>
+                    <p className={style.title1} style={{ textAlign: "center" }}>Nhà đất tương tự</p>
                     <div className={style.empty}>
                         <p className={style['empty-data']}>Không có dữ liệu（ミ￣ー￣ミ）</p>
                     </div>
                 </Container>
 
                 {/* ================================== hide phone and info============================ */}
-                <Container>
+                {/* <Container>
                     <div className="mobile-contact-request d-flex d-lg-none">
                         <a href="tel:contact.contactPhone" className="btn-dedicated featured">
                             ...
@@ -647,7 +647,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                             Yêu cầu thông tin
                         </span>
                     </button>
-                </Container>
+                </Container> */}
                 <style jsx>{
                     `
                     a{
