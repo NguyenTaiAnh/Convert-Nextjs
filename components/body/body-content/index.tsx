@@ -14,15 +14,30 @@ interface IState {
     residentialarea: any;
     data2: any;
     activeId: any;
+    open1: boolean;
+    open2: boolean;
+    open3: boolean;
+    open4: boolean;
+    open5: boolean;
+    open6: boolean;
+    isShowFull: boolean;
 
 }
+
 export default class BodyCenter extends React.Component<IProps, IState> {
     state: IState = {
         data: [],
         contactData: {},
         residentialarea: {},
         data2: [],
-        activeId: ""
+        activeId: "",
+        open1: false,
+        open2: false,
+        open3: false,
+        open4: false,
+        open5: false,
+        open6: false,
+        isShowFull: true,
     }
     constructor(props: IProps) {
         super(props)
@@ -80,6 +95,45 @@ export default class BodyCenter extends React.Component<IProps, IState> {
         const arrLocation7 = data2.filter(item => item.id === 7)
         const arrLocation5 = data2.filter(item => item.id === 5)
         // console.log('contactData',contactData.contactName);
+
+        const toggleShowIcon = () => {
+            this.setState({
+                open1: !this.state.open1
+            })
+        }
+        const toggleShowIcon2 = () => {
+            this.setState({
+                open2: !this.state.open2
+            })
+        }
+        const toggleShowIcon3 = () => {
+            this.setState({
+                open3: !this.state.open3
+            })
+        }
+        const toggleShowIcon4 = () => {
+            this.setState({
+                open4: !this.state.open4
+            })
+        }
+        const toggleShowIcon5 = () => {
+            this.setState({
+                open5: !this.state.open5
+            })
+        }
+        const toggleShowIcon6 = () => {
+            this.setState({
+                open6: !this.state.open6
+            })
+        }
+
+        const toggleIsShowFull = () => {
+            this.setState({
+                isShowFull: !this.state.isShowFull
+            })
+        }
+
+        console.log(this.state.isShowFull)
         return (
 
             <>
@@ -88,11 +142,11 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                     <div className={style.container_navbar}>
                     <Row >
                         <Col sm="12" lg="12" md="12" style={{ padding: "0", }} >
-                            <Nav className="ml-auto navbar-light bg-light" id="myHeader" >
-                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#tongquan">TỔNG QUAN</Nav.Link>
-                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#tienich">TIỆN ÍCH</Nav.Link>
-                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#vitri">VỊ TRÍ</Nav.Link>
-                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
+                            <Nav className="ml-auto navbar-light bg-light" id="myHeader" variant="pills"  >
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} className="" eventKey="1" href="#tongquan">TỔNG QUAN</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} className="" eventKey="2" href="#tienich">TIỆN ÍCH</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} className="" eventKey="3" href="#vitri">VỊ TRÍ</Nav.Link>
+                                <Nav.Link style={{ color: "#495057", fontWeight: "bold" }} className="" eventKey="4" href="#nhadat">NHÀ ĐẤT LÂN CẬN</Nav.Link>
                             </Nav>
                         </Col>
 
@@ -108,36 +162,42 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
                             <div id="tongquan">
                                 <p className={style.title}>Giới thiệu <span className={style.text}>{data.propertyName}</span></p>
+                                <br></br>
+                                <br></br>
                                 {/* -------------------------------------------------------------------------------------- */}
                                 <div className="gioi-thieu">
                                     {/* =========================================================== */}
-                                    <div className="collaspe-show" contentEditable='false' dangerouslySetInnerHTML={{ __html: data.propertyDescription }}></div>
+                                    <div className={ ` ${this.state.isShowFull ? `${style.active}` :""} `} contentEditable='false' dangerouslySetInnerHTML={{ __html: data.propertyDescription }}></div>
                                     {/* =========================================================== */}
 
-                                    <a href="#show" className="hide" id="hide">Thu gọn</a>
-                                    <a href="#hide" className="show" id="show">Xem thêm</a>
+                                    <p className="hide" id="hide" onClick={() => toggleIsShowFull()} >
+                                        {this.state.isShowFull ? 'Thu gọn' : 'Xem thêm'}
+                                    </p>
 
                                 </div>
                                 {/* ----------------------------Thong tin co ban--------------------------------------------- */}
 
                                 <hr />
                                 <Accordion defaultActiveKey="0" >
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
 
-                                    <Row>
+                                    <Row  onClick={() => toggleShowIcon()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Thông tin cơ bản <span className={style.text}>{data.propertyName}</span></p>
 
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                            {/* <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0"> */}
+                                                {this.state.open1
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
 
-                                            </Accordion.Toggle>
+                                            {/* </Accordion.Toggle> */}
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
 
                                         <Row style={{ fontSize: "14px" }}>
@@ -165,21 +225,22 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <hr />
                                 {/* --------------------------Loại hình-------------------- */}
                                 <Accordion defaultActiveKey="0">
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
 
-                                    <Row>
+                                    <Row onClick={() => toggleShowIcon2()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Loại hình <span className={style.text}>{data.propertyName}</span></p>
 
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                                {this.state.open2
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
-                                            </Accordion.Toggle>
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
 
                                         <Row style={{ fontSize: "14px" }}>
@@ -225,21 +286,22 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                             {/* =======================Tiện ích============================== */}
                             <div id="tienich" >
                                 <Accordion defaultActiveKey="0">
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
 
-                                    <Row>
+                                    <Row onClick={() => toggleShowIcon3()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Tiện ích <span className={style.text}>{data.propertyName}</span></p>
 
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                                {this.state.open3
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
-                                            </Accordion.Toggle>
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
                                         <Row style={{ fontSize: "14px" }}>
                                             <Col xs="6" md="4">
@@ -274,20 +336,22 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <hr />
                                 {/* -------------------------Noi that ------------- */}
                                 <Accordion defaultActiveKey="0">
-                                    <Row>
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
+
+                                    <Row onClick={()=> toggleShowIcon4()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Nội thất <span className={style.text}>{data.propertyName}</span></p>
 
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                                {this.state.open4
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
-                                            </Accordion.Toggle>
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
                                         <Row style={{ fontSize: "14px" }}>
                                             <Col xs="6" md="4">
@@ -336,19 +400,21 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <hr />
                                 {/* ----------------------Thong tin dang chu y------------- */}
                                 <Accordion defaultActiveKey="0">
-                                    <Row>
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
+
+                                    <Row onClick={()=> toggleShowIcon5()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Thông tin đáng chú ý <span className={style.text}>{data.propertyName}</span></p>
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                                {this.state.open5
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
-                                            </Accordion.Toggle>
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
                                         <Row>
                                             <Col lg="4" className={style['note-info']} >
@@ -386,19 +452,21 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 </Accordion>
                                 <hr />
                                 <Accordion defaultActiveKey="0">
-                                    <Row>
+                                <Accordion.Toggle style={{width:"100%"}} className={style['btn-css']} as={Button} variant="link" eventKey="0">
+
+                                    <Row onClick={()=>toggleShowIcon6()}>
                                         <Col lg="10" sm="10">
                                             <p className={style.title}>Hình ảnh <span className={style.text}>{data.propertyName}</span></p>
                                         </Col>
                                         <Col lg="2" sm="2" className={style['icon-click']}>
-                                            <Accordion.Toggle className={style['btn-css']} as={Button} variant="link" eventKey="0">
-                                                {this.state.activeId !== null
-                                                    ? <i className="fas fa-angle-up" id="selector"></i>
-                                                    : <i className="fas fa-angle-down" id="selector"></i>
+                                                {this.state.open6
+                                                    ? <i className="fas fa-angle-down" id="selector"></i>
+                                                    : <i className="fas fa-angle-up" id="selector"></i>
                                                 }
-                                            </Accordion.Toggle>
                                         </Col>
                                     </Row>
+                                    </Accordion.Toggle>
+
                                     <Accordion.Collapse eventKey="0">
                                         <img src={data.propertyDraftUrl} style={{ width: "100%" }} alt="" />
                                     </Accordion.Collapse>
@@ -413,10 +481,10 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                                 <Card>
                                     <div >
                                         <Row className={style['top-item']}>
-                                            <Col xs="2" lg="2" style={{ padding: "0" }} >
+                                            <Col xs="3" lg="2" style={{ padding: "0" }} >
                                                 <img src="/img/meo.jpg" alt="img" className={style['change-img']} />
                                             </Col>
-                                            <Col xs="10" lg="10">
+                                            <Col xs="9" lg="10" >
                                                 <p className={style['name-item']}>{contactData.contactName}</p>
                                                 <p>{contactData.jobTitle}</p>
                                             </Col>
@@ -541,51 +609,7 @@ export default class BodyCenter extends React.Component<IProps, IState> {
 
 
 
-                    {/* ======================================================================================== */}
-
-                    {/* <Row style={{ textAlign: "center" }}>
-                        <Col lg="6" md="6">
-                            {arrLocation7.map((item, index) => (
-                                <Card key={index} style={{ width: '50%', height: "100%" }}>
-                                    <Card.Img variant="top" src="/img/img1.jpg" />
-                                    <Card.Body>
-                                        <Card.Text>
-                                            <p>
-                                                {item.propertyCode} • <a>{item.propertyName}</a> • <a>{item.propertyDistrict}</a> • <a>{item.propertyRoad}</a>
-                                            </p></Card.Text>
-                                        <Card.Title>{item.propertyName} </Card.Title>
-                                        <ul className={style.list}>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
-
-                                        </ul>
-                                    </Card.Body>
-                                </Card>
-                            ))}
-                        </Col>
-                        <Col lg="6" md="6">
-                            {arrLocation5.map((item, index) => (
-                                <Card key={index} style={{ width: '50%', height: "100%" }}>
-                                    <Card.Img variant="top" src="/img/img1.jpg" />
-                                    <Card.Body>
-                                        <Card.Text>
-                                            <p>
-                                                {item.propertyCode} • <a>{item.placeName}</a> • <a>{item.propertyDistrict}</a>
-                                            </p></Card.Text>
-                                        <Card.Title>{item.propertyName} </Card.Title>
-                                        <ul className={style.list}>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bed"></i> {item.propertyBedRooms}</li>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-bath"></i>  {item.propertyBathRooms}</li>
-                                            <li style={{ marginRight: "20px" }}><i className="fas fa-vector-square"></i>  {item.propertySquare} m²</li>
-
-                                        </ul>
-                                    </Card.Body>
-                                </Card>
-                            ))}
-
-                        </Col>
-                    </Row> */}
+                   
                 </Container>
                 <Container fluid>
                     <hr />
@@ -610,6 +634,20 @@ export default class BodyCenter extends React.Component<IProps, IState> {
                         <p className={style['empty-data']}>Không có dữ liệu（ミ￣ー￣ミ）</p>
                     </div>
                 </Container>
+
+                {/* ================================== hide phone and info============================ */}
+                <Container>
+                    <div className="mobile-contact-request d-flex d-lg-none">
+                        <a href="tel:contact.contactPhone" className="btn-dedicated featured">
+                            ...
+                        </a>
+                    </div>
+                    <button className="btn-dedicated">
+                        <span className="icon-before bolt">
+                            Yêu cầu thông tin
+                        </span>
+                    </button>
+                </Container>
                 <style jsx>{
                     `
                     a{
@@ -633,3 +671,5 @@ export default class BodyCenter extends React.Component<IProps, IState> {
         )
     }
 }
+
+// export default function BodyCenter

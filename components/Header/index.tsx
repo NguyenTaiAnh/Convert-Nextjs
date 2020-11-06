@@ -8,18 +8,9 @@ import {
 
 export default function Header() {
 
-    const [isOpen, setIsOpen] = useState(false)
-    const [show, setShow] = useState(false)
-    const showDropdown = (e) => {
-        setShow(!show)
-    }
-    const hideDropdown = e =>{
-        setShow(false)
-    }
-
     return (
         <Navbar className={style["nav-menu"]} bg="dar" expand="lg">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
                 <img src="/img/logo.png" alt="" className={style["edit-logo"]} />
             </Navbar.Brand>
             <Form inline className="mr-auto my-auto d-inline w-25 " >
@@ -38,34 +29,6 @@ export default function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <NavLink className={style['nav-link']}><i className="fas fa-phone-alt"></i> 091 9751079</NavLink>
-                    {/* <NavDropdown title="Mua" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Thuê" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Dự án" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Thông tin" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-                    </NavDropdown> */}
                     
                     <NavItem className={`${style.dropdown} ${style['nav-link']}`}>
                         Mua <i className="fas fa-chevron-down"></i>
@@ -104,8 +67,6 @@ export default function Header() {
 
                     <NavLink className={style.login}>Đăng Nhập</NavLink>
 
-
-                    {/* <Nav.link></Nav.link> */}
                 </Nav>
 
             </Navbar.Collapse>
